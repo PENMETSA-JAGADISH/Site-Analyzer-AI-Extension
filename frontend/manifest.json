@@ -1,0 +1,36 @@
+{
+    "name":"SITE ANALYZER AI",
+    "version": "1.0",
+    "manifest_version": 3,
+    
+    "icons": {
+    "16": "logo01.png"},
+
+    "permissions":["sidePanel","scripting", "activeTab","tabs"],
+    "side_panel":{
+        "default_path":"sidepanel.html"
+    },
+
+    "action":{
+        "default_title": "Click to open panel",
+        "default_icon": "logo01.png"
+    },
+
+    "background":{
+        "service_worker" : "background.js"
+    },
+
+    
+  
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+,
+
+
+    "host_permissions": ["<all_urls>"]
+}
